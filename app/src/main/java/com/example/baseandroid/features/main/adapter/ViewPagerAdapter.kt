@@ -37,12 +37,8 @@ class ViewPagerAdapter(
 
         holder.txtTitle.text = pagerList[position].title
         holder.txtDesc.text = pagerList[position].decs
-
-
-            Glide.with(holder.image).load(pagerList[position].images).centerCrop()
+        Glide.with(holder.image).load(pagerList[position].images).centerCrop()
                 .placeholder(R.drawable.logo).into(holder.image)
-
-
         holder.itemView.setOnClickListener {
             onClick(pagerList[position])
         }

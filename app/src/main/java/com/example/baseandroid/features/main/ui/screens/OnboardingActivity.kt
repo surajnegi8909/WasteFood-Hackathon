@@ -6,6 +6,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.baseandroid.R
 import com.example.baseandroid.databinding.ActivityOnboardingBinding
 import com.example.baseandroid.features.main.adapter.ViewPagerAdapter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 
 class OnboardingActivity : ComponentActivity() {
 
@@ -17,7 +22,8 @@ class OnboardingActivity : ComponentActivity() {
         setContentView(binding.root)
 
         val pagerData = ArrayList<PagerData>()
-        pagerData.add(PagerData(R.drawable.logo,
+        pagerData.add(PagerData(
+            R.drawable.iv_onboarding_1,
             "Select Nearest Restaurant",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"))
         pagerData.add(PagerData(R.drawable.logo,
@@ -26,12 +32,21 @@ class OnboardingActivity : ComponentActivity() {
         pagerData.add(PagerData(R.drawable.logo,
             "Delivery",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"))
-
         binding.viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.viewpager.adapter = ViewPagerAdapter(pagerData) {
-
+        val totalPages = 3
+        CoroutineScope(Dispatchers.Main).launch {
+            while (isActive) {
+                delay(3000)
+                if (binding.viewpager.currentItem + 1 > totalPages - 1) {
+                    binding.viewpager.currentItem = 0
+                } else {
+                    binding.viewpager.currentItem++
+                }
+            }
         }
-
+        binding.viewpager.adapter = ViewPagerAdapter(pagerData) {
+        }
+        binding.dotsIndicator.attachTo(binding.viewpager)
     }
 
     data class PagerData(
