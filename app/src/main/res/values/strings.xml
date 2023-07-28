@@ -11,4 +11,10 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="check_internet">Please check your Internet.</string>
     <string name="item">Item</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="mobileNumberdesc">Enter the mobile number to get verification\ncode</string>
+    <string name="verification">Verification</string>
+    <string name="verificationDesc">Enter the OTP code from the phone we\nsent you.</string>
+    <string name="verificationResend">Didn\'t receive OTP?</string>
+    <string name="resend">Resend</string>
 </resources>
