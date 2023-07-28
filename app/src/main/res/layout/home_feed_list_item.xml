@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/view_thumbnail"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_restaurant_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Restaurant Image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_placeholder" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_restaurant_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:maxLength="60"
+        android:text="Sample Restaurant Name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tv_author_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_thumbnail"
+        app:layout_constraintTop_toTopOf="@+id/view_thumbnail" />
+
+    <TextView
+        android:id="@+id/tv_author_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/news_thumbnail"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_thumbnail"
+        app:layout_constraintEnd_toStartOf="@id/iv_dot"
+        app:layout_constraintStart_toStartOf="@id/tv_restaurant_name" />
+
+    <ImageView
+        android:id="@+id/iv_dot"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="5dp"
+        android:contentDescription="@string/divider_dot"
+        android:src="@drawable/divider_dot"
+        app:layout_constraintBottom_toBottomOf="@id/tv_author_name"
+        app:layout_constraintStart_toEndOf="@id/tv_author_name"
+        app:layout_constraintEnd_toStartOf="@id/tv_publish_date"
+        app:layout_constraintTop_toTopOf="@id/tv_author_name" />
+
+    <TextView
+        android:id="@+id/tv_publish_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/news_thumbnail"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_restaurant_name"
+        app:layout_constraintBottom_toBottomOf="@id/tv_author_name"
+        app:layout_constraintStart_toEndOf="@id/iv_dot"
+        app:layout_constraintTop_toTopOf="@id/tv_author_name" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
