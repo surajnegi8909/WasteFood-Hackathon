@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.baseandroid.R
 import com.example.baseandroid.databinding.ActivityHomeBinding
+import com.example.baseandroid.databinding.ActivityOtpactivityBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -16,6 +17,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {

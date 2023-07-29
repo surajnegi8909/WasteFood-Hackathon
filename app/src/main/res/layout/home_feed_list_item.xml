@@ -99,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pickup Before:"
-        android:alpha="0.5f"
+        android:textColor="@color/logindecs"
         android:textSize="14sp"
         android:layout_marginTop="6dp"
         android:textStyle="bold"

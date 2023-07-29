@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.baseandroid.databinding.ActivityUserRegistrationBinding
+import com.example.baseandroid.features.main.ui.homepage.HomeActivity
 import com.example.baseandroid.features.main.ui.screens.MainActivity
 import com.github.drjacky.imagepicker.ImagePicker
 import com.github.drjacky.imagepicker.constant.ImageProvider
@@ -37,7 +38,7 @@ class UserRegistrationActivity : AppCompatActivity() {
 
     private fun submitInfo() {
         binding.btnSubmit.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,HomeActivity::class.java))
             finish()
         }
     }
