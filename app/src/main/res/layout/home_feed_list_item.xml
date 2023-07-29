@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
+    android:layout_marginVertical="16dp"
+    android:background="@drawable/item_list_background"
     android:padding="10dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/view_thumbnail"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        app:cardCornerRadius="25dp"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginVertical="13dp"
+        app:cardCornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -18,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="Restaurant Image"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_placeholder" />
     </androidx.cardview.widget.CardView>
 
@@ -27,49 +32,91 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
-        android:maxLength="60"
+        android:ellipsize="end"
+        android:maxLength="25"
         android:text="Sample Restaurant Name"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/tv_author_name"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/iv_food_preference"
         app:layout_constraintStart_toEndOf="@id/view_thumbnail"
         app:layout_constraintTop_toTopOf="@+id/view_thumbnail" />
 
-    <TextView
-        android:id="@+id/tv_author_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/news_thumbnail"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view_thumbnail"
-        app:layout_constraintEnd_toStartOf="@id/iv_dot"
-        app:layout_constraintStart_toStartOf="@id/tv_restaurant_name" />
+    <ImageView
+        android:id="@+id/iv_food_preference"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/iv_veg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/iv_dot"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginStart="5dp"
-        android:contentDescription="@string/divider_dot"
-        android:src="@drawable/divider_dot"
-        app:layout_constraintBottom_toBottomOf="@id/tv_author_name"
-        app:layout_constraintStart_toEndOf="@id/tv_author_name"
-        app:layout_constraintEnd_toStartOf="@id/tv_publish_date"
-        app:layout_constraintTop_toTopOf="@id/tv_author_name" />
+        android:id="@+id/iv_location_marker"
+        android:layout_width="10dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_location_marker"
+        app:layout_constraintStart_toStartOf="@id/tv_restaurant_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_restaurant_name" />
 
     <TextView
-        android:id="@+id/tv_publish_date"
+        android:id="@+id/tv_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLength="22"
+        android:layout_marginStart="4dp"
+        android:text="Sample Restaurant Name"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_location_marker"
+        app:layout_constraintStart_toEndOf="@id/iv_location_marker" />
+    
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_marginStart="5dp"
+        android:src="@drawable/divider_dot"
+        app:layout_constraintStart_toEndOf="@id/tv_location"
+        app:layout_constraintBottom_toBottomOf="@id/tv_location"
+        app:layout_constraintTop_toTopOf="@id/tv_location"/>
+
+    <TextView
+        android:id="@+id/tv_distance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:text="4.5km"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tv_location"
+        app:layout_constraintStart_toEndOf="@id/tv_location" />
+
+    <TextView
+        android:id="@+id/tv_pickup_before"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="@string/news_thumbnail"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@id/tv_restaurant_name"
-        app:layout_constraintBottom_toBottomOf="@id/tv_author_name"
-        app:layout_constraintStart_toEndOf="@id/iv_dot"
-        app:layout_constraintTop_toTopOf="@id/tv_author_name" />
+        android:text="Pickup Before:"
+        android:alpha="0.5f"
+        android:textSize="14sp"
+        android:layout_marginTop="6dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/iv_location_marker"
+        app:layout_constraintStart_toStartOf="@id/tv_restaurant_name" />
+
+    <TextView
+        android:id="@+id/tv_pickup_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9:30pm"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_pickup_before"
+        app:layout_constraintStart_toEndOf="@id/tv_pickup_before" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

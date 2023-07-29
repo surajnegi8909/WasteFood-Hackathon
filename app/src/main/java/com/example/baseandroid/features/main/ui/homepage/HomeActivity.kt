@@ -2,6 +2,7 @@ package com.example.baseandroid.features.main.ui.homepage
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.OnBackPressedDispatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -23,9 +24,9 @@ class HomeActivity : AppCompatActivity() {
 //                    viewModel.currentlyActive.add(1)
                 }
 
-                R.id.tab_discover -> {
+                R.id.tab_history -> {
 //                    startActivity(Intent(this, SecondActivity::class.java))
-                    changeFragments(ExploreFeedFragment())
+                    changeFragments(HistoryFeedFragment())
 //                    viewModel.currentlyActive.add(2)
                 }
 
@@ -44,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         backPressCount++
-        if (backPressCount > 1) super.getOnBackPressedDispatcher().onBackPressed()
+        if (backPressCount > 1) OnBackPressedDispatcher().onBackPressed()
         else Toast.makeText(this, "Press Again to Quit", Toast.LENGTH_SHORT).show()
         resetBack()
     }
