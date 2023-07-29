@@ -17,10 +17,10 @@
         android:theme="@style/Theme.BaseAndroid"
         tools:targetApi="31">
         <activity
-            android:name=".DeliveryActivity"
+            android:name=".features.main.ui.screens.HomeScreen.DeliveryActivity"
             android:exported="false" />
         <activity
-            android:name=".PickUpActivity"
+            android:name=".features.main.ui.screens.HomeScreen.PickUpActivity"
             android:exported="false" />
         <activity
             android:name=".features.main.ui.screens.LoginScreen.OTPActivity"
@@ -64,6 +64,9 @@
             android:name=".features.userRegistration.ui.screens.UserRegistrationActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".features.main.ui.homepage.HomeActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
