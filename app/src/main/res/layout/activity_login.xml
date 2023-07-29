@@ -73,12 +73,6 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/ic_line"
-            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editTextPhone"
@@ -93,6 +87,7 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_get_otp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="38dp"

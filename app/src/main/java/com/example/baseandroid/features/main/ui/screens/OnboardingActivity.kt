@@ -1,16 +1,14 @@
 package com.example.baseandroid.features.main.ui.screens
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.baseandroid.R
 import com.example.baseandroid.databinding.ActivityOnboardingBinding
 import com.example.baseandroid.features.main.adapter.ViewPagerAdapter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
+import com.example.baseandroid.features.main.ui.screens.LoginScreen.LoginActivity
+import kotlinx.coroutines.*
 
 class OnboardingActivity : ComponentActivity() {
 
@@ -45,7 +43,14 @@ class OnboardingActivity : ComponentActivity() {
             }
         }
         binding.viewpager.adapter = ViewPagerAdapter(pagerData) {
+
         }
+
+        binding.btnGetStarted.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
         binding.dotsIndicator.attachTo(binding.viewpager)
     }
 

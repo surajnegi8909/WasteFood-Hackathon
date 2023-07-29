@@ -63,12 +63,12 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/black"
         app:height="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/txt_userPhoneNumber"
         app:layout_constraintTop_toBottomOf="@+id/textViewDesc"
         app:length="6"
         app:otp_box_background="@drawable/rounded_border"
-        app:otp_text_size="24dp"
+        app:otp_text_size="20dp"
         app:width="50dp" />
 
     <TextView
@@ -78,6 +78,8 @@
         android:layout_marginTop="21dp"
         android:text="@string/verificationResend"
         android:textColor="@color/logindecs"
+        app:layout_constraintEnd_toEndOf="@+id/otp_view"
+        app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="@+id/otp_view"
         app:layout_constraintTop_toBottomOf="@+id/otp_view" />
 
@@ -101,7 +103,7 @@
         android:layout_marginStart="26dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="26dp"
-        android:backgroundTint="@color/logindecs"
+        android:backgroundTint="@color/theme"
         android:paddingVertical="18dp"
         android:text="Submit"
         android:textAllCaps="false"
