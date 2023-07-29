@@ -20,7 +20,7 @@
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="25dp"
         android:text="@string/register"
         android:textColor="@color/black"
         android:textSize="32sp"

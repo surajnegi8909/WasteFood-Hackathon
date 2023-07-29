@@ -1,14 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".features.main.ui.homepage.ProfileFeedFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRegister" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="@id/ivProfile"
+        app:layout_constraintEnd_toEndOf="@id/ivProfile"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="@id/ivProfile"
+        app:layout_constraintTop_toTopOf="@id/ivProfile"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivProfile">
+
+        <RadioButton
+            android:id="@+id/radioVolunteer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:buttonTint="@color/app_primary"
+            android:checked="true"
+            android:text="@string/volunteer"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radioNgo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:buttonTint="@color/app_primary"
+            android:checked="false"
+            android:text="@string/ngo"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clVolunteer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/btnSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        app:layout_constraintVertical_bias="0">
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/btn_drawable"
+            android:hint="@string/name"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="@id/clVolunteer"
+            app:layout_constraintStart_toStartOf="@id/clVolunteer"
+            app:layout_constraintTop_toTopOf="@id/clVolunteer" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_drawable"
+            app:layout_constraintEnd_toEndOf="@id/clVolunteer"
+            app:layout_constraintStart_toStartOf="@id/clVolunteer"
+            app:layout_constraintTop_toBottomOf="@id/etName">
+
+            <EditText
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:background="@android:color/transparent"
+                android:hint="@string/location"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:padding="12dp"
+                app:layout_constraintEnd_toStartOf="@id/viewLocation"
+                app:layout_constraintStart_toStartOf="@id/clLocation"
+                app:layout_constraintTop_toTopOf="@id/clLocation" />
+
+            <View
+                android:id="@+id/viewLocation"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="50dp"
+                android:background="#D9D9D9"
+                app:layout_constraintBottom_toBottomOf="@id/etLocation"
+                app:layout_constraintEnd_toEndOf="@id/clLocation"
+                app:layout_constraintTop_toTopOf="@id/etLocation" />
+
+            <ImageButton
+                android:id="@+id/btnLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/ic_location"
+                app:layout_constraintBottom_toBottomOf="@id/etLocation"
+                app:layout_constraintEnd_toEndOf="@id/clLocation"
+                app:layout_constraintStart_toStartOf="@id/viewLocation"
+                app:layout_constraintTop_toTopOf="@id/etLocation" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clNgo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/btnSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        app:layout_constraintVertical_bias="0">
+
+        <EditText
+            android:id="@+id/etNgoName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/btn_drawable"
+            android:hint="@string/ngo_name"
+            android:maxLength="40"
+            android:maxLines="1"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="@id/clNgo"
+            app:layout_constraintStart_toStartOf="@id/clNgo"
+            app:layout_constraintTop_toTopOf="@id/clNgo" />
+
+        <EditText
+            android:id="@+id/etMemberCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_drawable"
+            android:hint="@string/member_count"
+            android:maxLength="3"
+            android:maxLines="1"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="@id/clNgo"
+            app:layout_constraintStart_toStartOf="@id/clNgo"
+            app:layout_constraintTop_toBottomOf="@id/etNgoName" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clNgoLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_drawable"
+            app:layout_constraintEnd_toEndOf="@id/clNgo"
+            app:layout_constraintStart_toStartOf="@id/clNgo"
+            app:layout_constraintTop_toBottomOf="@id/etMemberCount">
+
+            <EditText
+                android:id="@+id/etNgoLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:background="@android:color/transparent"
+                android:hint="@string/location"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:padding="12dp"
+                app:layout_constraintEnd_toStartOf="@id/viewNgoLocation"
+                app:layout_constraintStart_toStartOf="@id/clNgoLocation"
+                app:layout_constraintTop_toTopOf="@id/clNgoLocation" />
+
+            <View
+                android:id="@+id/viewNgoLocation"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="50dp"
+                android:background="#D9D9D9"
+                app:layout_constraintBottom_toBottomOf="@id/etNgoLocation"
+                app:layout_constraintEnd_toEndOf="@id/clNgoLocation"
+                app:layout_constraintTop_toTopOf="@id/etNgoLocation" />
+
+            <ImageButton
+                android:id="@+id/btnNgoLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/ic_location"
+                app:layout_constraintBottom_toBottomOf="@id/etNgoLocation"
+                app:layout_constraintEnd_toEndOf="@id/clNgoLocation"
+                app:layout_constraintStart_toStartOf="@id/viewNgoLocation"
+                app:layout_constraintTop_toTopOf="@id/etNgoLocation" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/app_primary"
+        android:paddingVertical="12dp"
+        android:text="Save"
+        app:cornerRadius="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
