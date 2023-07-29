@@ -38,6 +38,7 @@ class UserRegistrationActivity : AppCompatActivity() {
     private fun submitInfo() {
         binding.btnSubmit.setOnClickListener {
             startActivity(Intent(this,MainActivity::class.java))
+            finish()
         }
     }
 

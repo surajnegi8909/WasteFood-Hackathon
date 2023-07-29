@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.baseandroid.databinding.ActivityOtpactivityBinding
-import com.example.baseandroid.features.main.ui.screens.MainActivity
+import com.example.baseandroid.features.userRegistration.ui.screens.UserRegistrationActivity
 
 
 class OTPActivity : AppCompatActivity() {
@@ -31,15 +31,15 @@ class OTPActivity : AppCompatActivity() {
         binding.btnSummit.setOnClickListener {
             val otp = binding.otpView.otp.toString()
             if (otp.isNotEmpty()) {
-                moveToHomeScreen()
+                moveToRegistrationScreen()
             } else {
                 Toast.makeText(this, "Enter OTP", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun moveToHomeScreen() {
-        startActivity(Intent(this, MainActivity::class.java))
+    private fun moveToRegistrationScreen() {
+        startActivity(Intent(this, UserRegistrationActivity::class.java))
         finishAffinity()
 
     }
