@@ -22,9 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initComponents()
-        callUserApi()
+//        initComponents()
+//        callUserApi()
     }
+
+    
 
     private fun initComponents() {
         binding.recyclerview.apply {

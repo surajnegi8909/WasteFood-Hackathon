@@ -9,4 +9,6 @@
   <color name="white">#FFFFFFFF</color>
   <color name="logindecs">#999999</color>
   <color name="theme">#FF6801</color>
+  <color name="dot_color">#D9D9D9</color>
+
 </resources>

@@ -38,7 +38,13 @@
             android:value="AIzaSyB4-1BURcLEyl0HLNK9QxHLf8wTJljHncs" />
 
         <activity
+            android:name=".features.main.ui.screens.OnboardingActivity"
+            android:exported="false" />
+        <activity
             android:name=".features.main.ui.screens.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".features.main.ui.screens.SplashActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.BaseAndroid.NoActionBar">
