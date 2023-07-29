@@ -24,10 +24,10 @@ class OnboardingActivity : ComponentActivity() {
             R.drawable.iv_onboarding_1,
             "Select Nearest Restaurant",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"))
-        pagerData.add(PagerData(R.drawable.logo,
+        pagerData.add(PagerData(R.drawable.ic_vp2,
             "Your Drop Location",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"))
-        pagerData.add(PagerData(R.drawable.logo,
+        pagerData.add(PagerData(R.drawable.ic_vp3,
             "Delivery",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut"))
         binding.viewpager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
