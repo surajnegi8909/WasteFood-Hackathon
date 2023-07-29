@@ -2,13 +2,11 @@ package com.example.baseandroid.features.main.ui.homepage
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.OnBackPressedDispatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.baseandroid.R
 import com.example.baseandroid.databinding.ActivityHomeBinding
-import com.example.baseandroid.databinding.ActivityOtpactivityBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -19,17 +17,15 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        changeFragments(HomeFeedFragment())
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.tab_home -> {
                     changeFragments(HomeFeedFragment())
-//                    viewModel.currentlyActive.add(1)
                 }
 
                 R.id.tab_history -> {
-//                    startActivity(Intent(this, SecondActivity::class.java))
                     changeFragments(HistoryFeedFragment())
-//                    viewModel.currentlyActive.add(2)
                 }
 
                 R.id.tab_profile -> {
@@ -40,6 +36,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+
     override fun onResume() {
         backPressCount = 0
         super.onResume()
@@ -47,7 +44,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         backPressCount++
-        if (backPressCount > 1) OnBackPressedDispatcher().onBackPressed()
+        if (backPressCount > 1) onBackPressedDispatcher.onBackPressed()
         else Toast.makeText(this, "Press Again to Quit", Toast.LENGTH_SHORT).show()
         resetBack()
     }

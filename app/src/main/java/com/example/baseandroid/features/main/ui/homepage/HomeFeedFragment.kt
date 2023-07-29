@@ -12,17 +12,15 @@ import com.example.baseandroid.features.main.models.UserResponse
 
 class HomeFeedFragment : Fragment() {
     private lateinit var binding: FragmentHomeFeedBinding
+    private lateinit var restaurantList: List<UserResponse>
+    private lateinit var adapterObject: UserAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeFeedBinding.inflate(layoutInflater)
-        binding.rvRestaurantsList.layoutManager = LinearLayoutManager(context)
-        val restaurantList = createList()
-        val adapterObject = UserAdapter(this.requireActivity())
-        adapterObject.setUserList(restaurantList)
-        binding.rvRestaurantsList.adapter = adapterObject
         return binding.root
+
     }
 
     private fun createList(): List<UserResponse> {
@@ -146,5 +144,17 @@ class HomeFeedFragment : Fragment() {
             )
         )
         return list
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        adapterObject = UserAdapter(binding.root.context)
+        restaurantList = createList()
+        binding.rvRestaurantsList.apply {
+            adapter = adapterObject
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+        }
+        adapterObject.setUserList(restaurantList)
     }
 }
