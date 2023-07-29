@@ -54,6 +54,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".features.userRegistration.ui.screens.UserRegistrationActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

@@ -21,7 +21,7 @@ class MainViewModel @Inject constructor(
     private val _allUserData: MutableLiveData<NetworkResult<List<UserResponse>>> = MutableLiveData()
     val allUserData: LiveData<NetworkResult<List<UserResponse>>> = _allUserData
     fun fetchAllUsers() = viewModelScope.launch {
-        repository.getAllUsers().collect { values ->
+        repository.getAllUsers().collect { values: NetworkResult<List<UserResponse>> ->
             _allUserData.value = values
         }
     }
