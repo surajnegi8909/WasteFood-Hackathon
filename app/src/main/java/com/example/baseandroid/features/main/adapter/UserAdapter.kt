@@ -8,10 +8,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.baseandroid.R
 import com.example.baseandroid.databinding.CardViewDesignBinding
-import com.example.baseandroid.features.main.adapter.UserAdapter.ViewHolder
 import com.example.baseandroid.features.main.models.UserResponse
 
-class UserAdapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+class UserAdapter(private val context: Context) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     private var userList = listOf<UserResponse>()
     fun setUserList(userList : List<UserResponse>){
         this.userList = userList
