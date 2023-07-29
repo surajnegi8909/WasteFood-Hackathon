@@ -2,14 +2,8 @@ package com.example.baseandroid
 
 import android.app.Activity
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.baseandroid.databinding.ActivityDropUploadBinding
 import com.github.drjacky.imagepicker.ImagePicker
 import com.github.drjacky.imagepicker.constant.ImageProvider
@@ -20,7 +14,8 @@ class DropUploadActivity : AppCompatActivity() {
     private val btnList = listOf<CircleImageView>(
         binding.ivEditProfile,
         binding.ivEditProfile2,
-        binding.ivEditProfile3
+        binding.ivEditProfile3,
+        binding.ivEditProfile4
     )
     private val launcher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
